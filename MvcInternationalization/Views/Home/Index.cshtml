@@ -85,5 +85,21 @@ if (c == culture)
             });
 
         })(jQuery);
+
+        function getResources() {
+            var cultureName = $.cookie("_culture");
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'GET',
+                url: "/Api/ApiResources/GetResources?cultureName=" + cultureName,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function () {
+                    alert("Something is wrong!");
+                }
+            });
+        }
     </script>
 }
